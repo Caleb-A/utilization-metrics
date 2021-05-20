@@ -7,7 +7,7 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif', '.txt', '.text', 'plain']
-app.config['UPLOAD_PATH'] = '/home/zero/workspace/python_code/uploads'
+app.config['UPLOAD_PATH'] = os.path.join(os.path.dirname(__file__),'uploads')
 
 def validate_image(stream):
     header = stream.read(512)  # 512 bytes should be enough for a header check
